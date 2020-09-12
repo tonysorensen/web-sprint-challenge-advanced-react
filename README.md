@@ -30,13 +30,35 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+A stateful component is built with its own state object as opposed to having state passed to it by a parent component via props. First the class is declared- class ComponentName, then the cla
+ss extends the base React component- class ComponentName extends React.Component. Then a constructor is used to initialize the local state- constructor() {super(); this.state={};} (The super
+keyword is used to access and call functions and methods of the parent class, in this case it is just React.Component but a class component can extend other react components and super would a
+llow the use of functions and methods within that component, similar to props.) Finally we render the UI and return some JSX- render(){return <h1>Hello World!</h1>} A completed component woul
+d have this structure-
+
 2. Describe the different phases of the component lifecycle.
+
+There are 3 phases - the birth/mounting phase, the update phase and the death/unmounting phase
+. In the mounting phase the component is being built. The constructor, render and componentDid
+Mount methods are called. Your component is built with the inital state set in the constructor
+method. In the update phase setState can be used to change the state and the component will
+rerender, the DOM is updated. In the unmount phase the component is removed from the DOM.
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+constructor()- The constructor initializes state in a class component and can be used to bind event handlers to an instance. It
+render()- The render method examines props and state and returns React elements created with JSX.
+componentDidMount()- Is called as soon as the render method is called the first time. It can be used to setState to a new condition. It's where we would fetch data and use it to set state.
+componentDidUpdate()- Gets called after every render. It's a place to set state or props with new information, like when a form is filled out.
+componentWillUnmount()- is a place to do cleanup before the component is removed from the DOM.
+
 4. Define stateful logic.
 
+Stateful logic is moving the functionc that make changes to your state out of the components and into "hooks" that can then be written to be "generic" and reuseable functions that all the components that need can use. It helps to keep your code DRY. Example, rather than writing a function to handle changes on different forms in different components you would write one handleChange function as a hook and then import it to the components that need it.
+
 5. Describe how to test a React component with React Testing Library.
+
+First you arrange the test by setting up your code so that it can be tested, then you act on the code by calling a method or function that returns results. Finally you "assert" by checking to see if the expected return matches the actual return.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
